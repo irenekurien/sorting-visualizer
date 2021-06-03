@@ -8,6 +8,8 @@ const Bars = ({ arr }) => {
       style={{
         display: "flex",
         height: "80vh",
+        width: "80vw",
+        margin: "0 auto",
         flexDirection: "row",
         alignItems: "end",
       }}
@@ -22,9 +24,9 @@ const Bars = ({ arr }) => {
             <div
               style={{
                 height: `${height}%`,
-                width: `calc((100vw/${arr.length}) - 4px)`,
-                border: "2px solid #fff",
-                padding: "10px",
+                width: `calc((80vw/${arr.length}) - 4px)`,
+                background: "#f2edd7",
+                margin: "0 2px",
               }}
             ></div>
           </div>

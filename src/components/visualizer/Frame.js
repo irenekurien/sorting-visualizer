@@ -3,7 +3,7 @@ import generateRandomArray from "../../utils/randomize";
 import Bar from "./Bars";
 
 const Home = () => {
-  const [randomArray, setrandomArray] = useState(generateRandomArray(5));
+  const [randomArray, setrandomArray] = useState(generateRandomArray(8));
 
   return <Bar arr={randomArray} />;
 };
