@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+
+import generateRandomArray from "../../utils/randomize";
+import { algorithms } from "../../utils/constants";
 import "./menuStyles.scss";
 
-const MenuApp = (props) => {
+const MenuApp = ({ size, setRandomArray }) => {
+  let [currentAlgorithm, setCurrentAlgorithm] = useState("");
+
+  const algorithChangeHandler = (event) => {
+    currentAlgorithm = event.target.outerText;
+  };
+
+  const generateRandomBtnHandler = () => {
+    setRandomArray(generateRandomArray(size));
+  };
+
   return (
     <section className="menu">
-      <button className="menu-button text">Generate New Array</button>
+      <button onClick={generateRandomBtnHandler} className="menu-button text">
+        Generate New Array
+      </button>
       <div className="range">
         <label className="text" htmlFor="array-size">
           Change array size
@@ -13,11 +28,16 @@ const MenuApp = (props) => {
         <span className="text"></span>
       </div>
       <div>
-        <button className="menu-button text">Merge Sort</button>
-        <button className="menu-button text">Quick Sort</button>
-        <button className="menu-button text">Heap Sort</button>
-        <button className="menu-button text">Selection Sort</button>
-        <button className="menu-button text">Bubble Sort</button>
+        {algorithms.map((algorithm, index) => {
+          return (
+            <button
+              onClick={algorithChangeHandler}
+              className="menu-button text"
+            >
+              {algorithm}
+            </button>
+          );
+        })}
       </div>
 
       <button className="menu-button text menu-toggle">Sort!</button>
