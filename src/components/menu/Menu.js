@@ -16,6 +16,7 @@ const MenuApp = (props) => {
         <button className="menu-button text">Merge Sort</button>
         <button className="menu-button text">Quick Sort</button>
         <button className="menu-button text">Heap Sort</button>
+        <button className="menu-button text">Selection Sort</button>
         <button className="menu-button text">Bubble Sort</button>
       </div>
 
