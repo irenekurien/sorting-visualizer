@@ -4,7 +4,14 @@ import generateRandomArray from "../../utils/randomize";
 import { algorithms } from "../../utils/constants";
 import "./menuStyles.scss";
 
-const MenuApp = ({ size, setRandomArray }) => {
+const MenuApp = ({
+  setSize,
+  randomArray,
+  setRandomArray,
+  setColorsArray,
+  setMaxEl,
+}) => {
+  let size = randomArray.length;
   let [currentAlgorithm, setCurrentAlgorithm] = useState("");
 
   const algorithChangeHandler = (event) => {
@@ -12,7 +19,17 @@ const MenuApp = ({ size, setRandomArray }) => {
   };
 
   const generateRandomBtnHandler = () => {
-    setRandomArray(generateRandomArray(size));
+    const newRandomArray = generateRandomArray(size);
+    setRandomArray(newRandomArray);
+    setMaxEl(Math.max(...newRandomArray));
+  };
+
+  const changeArraySizeHandler = (event) => {
+    const newRandomArray = generateRandomArray(event.target.value);
+    setSize(newRandomArray.length);
+    setRandomArray(newRandomArray);
+    setMaxEl(Math.max(...newRandomArray));
+    setColorsArray(new Array(newRandomArray.length).fill(0));
   };
 
   return (
@@ -24,7 +41,14 @@ const MenuApp = ({ size, setRandomArray }) => {
         <label className="text" htmlFor="array-size">
           Change array size
         </label>
-        <input className="menu-range" type="range" min="4" max="30" />
+        <input
+          onChange={changeArraySizeHandler}
+          className="menu-range"
+          type="range"
+          min="8"
+          max="200"
+          defaultValue={size}
+        />
         <span className="text"></span>
       </div>
       <div>

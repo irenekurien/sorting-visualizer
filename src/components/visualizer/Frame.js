@@ -1,19 +1,23 @@
 import React, { useState } from "react";
 import Menu from "../menu/Menu";
 import generateRandomArray from "../../utils/randomize";
-import { selectionSort } from "../../algorithms/selectionSort";
 import Bar from "./Bars";
 
 const Home = () => {
-  const size = 300;
+  let [size, setSize] = useState(8);
   let [randomArray, setRandomArray] = useState(generateRandomArray(size));
   let [colorsArray, setColorsArray] = useState(new Array(size).fill(0));
-
-  const maxEl = Math.max(...randomArray);
+  let [maxEl, setMaxEl] = useState(Math.max(...randomArray));
 
   return (
     <div>
-      <Menu size={size} setRandomArray={setRandomArray} />
+      <Menu
+        setSize={setSize}
+        randomArray={randomArray}
+        setRandomArray={setRandomArray}
+        setColorsArray={setColorsArray}
+        setMaxEl={setMaxEl}
+      />
       <div
         style={{
           display: "flex",

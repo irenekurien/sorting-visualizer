@@ -1,14 +1,26 @@
-export const selectionSort = (arr) => {
-  let len = arr.length;
+import { delay } from "../utils/delay";
+
+export const bubbleSort = async ({ array, setArray, setColorsArray }) => {
+  let len = array.length;
 
   for (let i = 0; i < len - 1; i++) {
     for (let j = 0; j < len - 1 - i; j++) {
-      if (arr[j + 1] < arr[j]) {
-        let temp = arr[j + 1];
-        arr[j + 1] = arr[j];
-        arr[j] = temp;
+      const newColorsArray = new Array(len).fill(0);
+      newColorsArray[j + 1] = 1;
+      newColorsArray[j] = 2;
+
+      await delay(0.025);
+
+      setColorsArray(newColorsArray);
+
+      if (array[j + 1] < array[j]) {
+        let temp = array[j + 1];
+        array[j + 1] = array[j];
+        array[j] = temp;
       }
     }
+    setArray(array);
   }
-  return arr;
+  const newColorsArray = new Array(len).fill(3);
+  setColorsArray(newColorsArray);
 };
