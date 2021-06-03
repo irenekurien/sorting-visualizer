@@ -1,0 +1,11 @@
+        <button
+          onClick={async () =>
+            await selectionSort({
+              array: randomArray,
+              setArray: setRandomArray,
+              setColorsArray: setColorsArray,
+            })
+          }
+        >
+          Start
+        </button>

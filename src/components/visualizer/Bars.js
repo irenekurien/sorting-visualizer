@@ -1,38 +1,32 @@
 import React from "react";
+import { GENERIC, PIVOT, SWAP, KEY } from "../../utils/constants";
 
-const Bars = ({ arr }) => {
-  const maxEl = Math.max(...arr);
+const Bars = ({ height, width, code}) => {
+  let color = GENERIC;
+
+    switch (code) {
+      case 1:
+        color = PIVOT;
+        break;
+      case 2:
+        color = SWAP;
+        break;
+      case 3:
+        color = KEY;
+        break;
+      default:
+        color = GENERIC;
+    }
 
   return (
     <div
       style={{
-        display: "flex",
-        height: "80vh",
-        width: "80vw",
-        margin: "0 auto",
-        flexDirection: "row",
-        alignItems: "end",
+        height: `${height}%`,
+        width: `calc((80vw/${width}) - 4px)`,
+        background: `${color}`,
+        margin: "0 2px",
       }}
-    >
-      {arr.map((item, index) => {
-        const height = (item / maxEl) * 100;
-        return (
-          <div
-            key={index}
-            style={{ height: "100%", display: "flex", alignItems: "end" }}
-          >
-            <div
-              style={{
-                height: `${height}%`,
-                width: `calc((80vw/${arr.length}) - 4px)`,
-                background: "#f2edd7",
-                margin: "0 2px",
-              }}
-            ></div>
-          </div>
-        );
-      })}
-    </div>
+    ></div>
   );
 };
 
