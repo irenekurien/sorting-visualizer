@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap");
+
+// COLORS
+$color-primary: #3a6351;
+$color-secondary: #e48257;
+$color-dark: #393232;
+$color-text: #f2edd7;
+
+// FONT
+$default-font-size: 1.8rem;
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  background: $color-dark;
+  font-family: "Poppins";
+}

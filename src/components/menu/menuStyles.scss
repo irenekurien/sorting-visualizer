@@ -1,0 +1,79 @@
+@import "../../app.scss";
+
+.text {
+  padding: 2rem;
+  color: $color-text;
+  font-size: $default-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.menu {
+  background: $color-primary;
+  height: 10rem;
+
+  display: grid;
+  grid-template-columns: 0.2fr 0.5fr 0.5fr 0.2fr;
+  align-items: center;
+
+  &-button {
+    background: transparent;
+    height: 5rem;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-secondary;
+    }
+  }
+
+  &-toggle {
+    display: none;
+  }
+
+  &-range {
+    width: 33%;
+    height: 1.5rem;
+    -webkit-appearance: none;
+    background: $color-primary;
+    outline: none;
+    overflow: hidden;
+    box-shadow: inset 0 0 5px $color-dark;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 1.5rem;
+      height: 1.5rem;
+      background: $color-text;
+      cursor: pointer;
+      border: 4px solid #333;
+      box-shadow: -40rem 0 0 40rem $color-text;
+    }
+  }
+}
+
+.range {
+  margin-top: 8px;
+}
+
+/* Hides the slider so custom styles can be added */
+input[type="range"] {
+  -webkit-appearance: none;
+  background: transparent;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
