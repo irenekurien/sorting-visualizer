@@ -1,11 +1,12 @@
-        <button
-          onClick={async () =>
-            await selectionSort({
-              array: randomArray,
-              setArray: setRandomArray,
-              setColorsArray: setColorsArray,
-            })
-          }
-        >
-          Start
-        </button>
+<button
+        onClick={async () =>
+          await bubbleSort({
+            array: randomArray,
+            setArray: setRandomArray,
+            setColorsArray: setColorsArray,
+            visualizationSpeed: visualizationSpeed,
+          })
+        }
+      >
+        Start
+      </button>

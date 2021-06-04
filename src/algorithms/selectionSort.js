@@ -1,6 +1,11 @@
 import { delay } from "../utils/delay";
 
-export const selectionSort = async ({ array, setArray, setColorsArray }) => {
+export const selectionSort = async ({
+  array,
+  setArray,
+  setColorsArray,
+  visualizationSpeed,
+}) => {
   let len = array.length;
 
   for (let i = 0; i < len; i++) {
@@ -10,8 +15,9 @@ export const selectionSort = async ({ array, setArray, setColorsArray }) => {
       const newColorsArray = new Array(len).fill(0);
       newColorsArray[minIndex] = 1;
       newColorsArray[j] = 2;
-
-      await delay(.025);
+      newColorsArray[i] = 3;
+      
+      await delay(visualizationSpeed);
 
       setColorsArray(newColorsArray);
 

@@ -4,10 +4,11 @@ import generateRandomArray from "../../utils/randomize";
 import Bar from "./Bars";
 
 const Home = () => {
-  let [size, setSize] = useState(8);
+  let [size, setSize] = useState(50);
   let [randomArray, setRandomArray] = useState(generateRandomArray(size));
-  let [colorsArray, setColorsArray] = useState(new Array(size).fill(0));
   let [maxEl, setMaxEl] = useState(Math.max(...randomArray));
+
+  let [colorsArray, setColorsArray] = useState(new Array(size).fill(0));
 
   return (
     <div>

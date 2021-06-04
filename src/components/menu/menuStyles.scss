@@ -1,7 +1,7 @@
 @import "../../app.scss";
 
 .text {
-  padding: 2rem;
+  padding: 1.5rem;
   color: $color-text;
   font-size: $default-font-size;
   font-weight: 700;
@@ -13,7 +13,7 @@
   height: 10rem;
 
   display: grid;
-  grid-template-columns: 0.2fr 0.3fr 0.6fr 0.2fr;
+  grid-template-columns: 0.2fr 0.2fr 0.2fr 0.5fr;
   align-items: center;
 
   &-button {
@@ -26,10 +26,6 @@
       color: $color-secondary;
     }
   }
-
-  // &-toggle {
-  //   display: none;
-  // }
 
   &-range {
     width: 33%;
@@ -52,8 +48,10 @@
   }
 }
 
-.range {
-  margin-top: 8px;
+.toggle {
+  color: #ffc93c;
+  font-weight: bolder;
+  font-size: $default-font-size;
 }
 
 /* Hides the slider so custom styles can be added */
@@ -76,4 +74,3 @@ input[type="range"]::-ms-track {
   border-color: transparent;
   color: transparent;
 }
-
