@@ -26,7 +26,7 @@ const MenuApp = ({
   };
 
   const algorithmAndSortHandler = async (event) => {
-    currentAlgorithm = event.target.outerText;
+    currentAlgorithm = event.target.textContent;
     event.target.className = "menu-button text toggle";
 
     const props = {
