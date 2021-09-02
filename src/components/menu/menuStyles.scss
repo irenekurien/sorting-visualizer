@@ -25,6 +25,10 @@
     &:hover {
       color: $color-secondary;
     }
+
+    &.disabled:hover {
+      cursor: not-allowed;
+    }
   }
 
   &-range {

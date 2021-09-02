@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { insertionSort } from "../../algorithms/insertionSort";
 import { selectionSort } from "../../algorithms/selectionSort";
 import { bubbleSort } from "../../algorithms/bubbleSort";
 import generateRandomArray from "../../utils/randomize";
@@ -16,9 +16,11 @@ const MenuApp = ({
   let size = randomArray.length;
   let currentAlgorithm = algorithms[4];
 
-  let [visualizationSpeed, setVisualizationSpeed] = useState(1000);
+  let [sortingSpeed, setSortingSpeed] = useState(1000);
+  let [isSorting, setIsSorting] = useState(false);
 
   const updateState = (newRandomArray) => {
+    setIsSorting(false);
     setSize(newRandomArray.length);
     setRandomArray(newRandomArray);
     setMaxEl(Math.max(...newRandomArray));
@@ -28,15 +30,19 @@ const MenuApp = ({
   const algorithmAndSortHandler = async (event) => {
     currentAlgorithm = event.target.textContent;
     event.target.className = "menu-button text toggle";
+    setIsSorting(true);
 
     const props = {
       array: randomArray,
       setArray: setRandomArray,
       setColorsArray: setColorsArray,
-      visualizationSpeed: visualizationSpeed,
+      sortingSpeed: sortingSpeed,
     };
 
     switch (currentAlgorithm) {
+      case algorithms[2]:
+        await insertionSort(props);
+        break;
       case algorithms[3]:
         await selectionSort(props);
         break;
@@ -50,6 +56,7 @@ const MenuApp = ({
     event.target.className = "menu-button text";
     const newColorsArray = new Array(size).fill(3);
     setColorsArray(newColorsArray);
+    setIsSorting(false);
   };
 
   const generateRandomBtnHandler = () => {
@@ -63,12 +70,16 @@ const MenuApp = ({
   };
 
   const changeSpeedHandler = (event) => {
-    setVisualizationSpeed(250 - event.target.value);
+    setSortingSpeed(250 - event.target.value);
   };
 
   return (
     <section className="menu">
-      <button onClick={generateRandomBtnHandler} className="menu-button text">
+      <button
+        onClick={generateRandomBtnHandler}
+        className="menu-button text"
+        disabled={isSorting}
+      >
         Generate New Array
       </button>
       <div className="range">
@@ -82,6 +93,7 @@ const MenuApp = ({
           min="8"
           max="250"
           defaultValue={size}
+          disabled={isSorting}
         />
       </div>
       <div className="range">
@@ -95,6 +107,7 @@ const MenuApp = ({
           min="8"
           max="250"
           defaultValue={size}
+          disabled={isSorting}
         />
       </div>
       <div>
@@ -104,6 +117,7 @@ const MenuApp = ({
               key={index}
               onClick={algorithmAndSortHandler}
               className="menu-button text"
+              disabled={isSorting}
             >
               {algorithm}
             </button>

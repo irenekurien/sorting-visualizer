@@ -4,31 +4,33 @@ export const selectionSort = async ({
   array,
   setArray,
   setColorsArray,
-  visualizationSpeed,
+  sortingSpeed,
 }) => {
   let len = array.length;
 
   for (let i = 0; i < len; i++) {
-    let minIndex = i;
+    let min = i;
 
     for (let j = i + 1; j < len; j++) {
-      const newColorsArray = new Array(len).fill(0);
-      newColorsArray[minIndex] = 1;
+      let newColorsArray = new Array(i)
+        .fill(3)
+        .concat(new Array(len - 1).fill(0));
+      newColorsArray[min] = 1;
       newColorsArray[j] = 2;
       newColorsArray[i] = 3;
-      
-      await delay(visualizationSpeed);
+
+      await delay(sortingSpeed);
 
       setColorsArray(newColorsArray);
 
-      if (array[minIndex] > array[j]) {
-        minIndex = j;
+      if (array[min] > array[j]) {
+        min = j;
       }
     }
 
-    let temp = array[i];
-    array[i] = array[minIndex];
-    array[minIndex] = temp;
+    let t = array[i];
+    array[i] = array[min];
+    array[min] = t;
 
     setArray(array);
   }

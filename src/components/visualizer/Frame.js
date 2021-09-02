@@ -24,13 +24,13 @@ const Home = () => {
           display: "flex",
           height: "80vh",
           width: "80vw",
-          margin: "0 auto",
+          margin: "20px auto",
           flexDirection: "row",
           alignItems: "end",
         }}
       >
         {randomArray.map((item, index) => {
-          const height = (item / maxEl) * 100;
+          const height = Math.max(1, (item / maxEl) * 100);
           return (
             <div
               key={index}
