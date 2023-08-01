@@ -38,8 +38,6 @@ export const quickSort = async ({
         newColorsArray[j] = 4;
         
         setArray(array);
-        await changeColor(newColorsArray);
-
         newColorsArray[i] = 1;
         newColorsArray[j] = 1;
         await changeColor(newColorsArray);
@@ -55,7 +53,6 @@ export const quickSort = async ({
     setArray(array);
 
     newColorsArray[i + 1] = 3; 
-    await changeColor(newColorsArray);
 
     return i + 1;
   };

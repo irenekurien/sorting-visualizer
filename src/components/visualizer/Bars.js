@@ -3,8 +3,6 @@ import { GENERIC, PIVOT, SWAP, KEY, SUBARRAY } from "../../utils/constants";
 
 const Bars = ({ height, width, code}) => {
   let color = GENERIC;
-  console.log(code)
-
     switch (code) {
       case 1:
         color = PIVOT;
