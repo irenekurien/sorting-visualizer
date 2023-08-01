@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Menu from "../menu/Menu";
-import generateRandomArray from "../../utils/randomize";
+import { generateRandomArray } from "../../utils";
 import Bar from "./Bars";
 
 const Home = () => {

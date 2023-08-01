@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import { insertionSort } from "../../algorithms/insertionSort";
-import { selectionSort } from "../../algorithms/selectionSort";
-import { bubbleSort } from "../../algorithms/bubbleSort";
-import generateRandomArray from "../../utils/randomize";
-import { algorithms } from "../../utils/constants";
+import { algorithms, generateRandomArray } from "../../utils";
+import { quickSort, mergeSort, bubbleSort, insertionSort, selectionSort } from "../../algorithms";
 import "./menuStyles.scss";
 
 const MenuApp = ({
@@ -38,8 +35,15 @@ const MenuApp = ({
       setColorsArray: setColorsArray,
       sortingSpeed: sortingSpeed,
     };
+    console.log(algorithms)
 
     switch (currentAlgorithm) {
+      case algorithms[0]:
+        await quickSort(props);
+        break;
+      case algorithms[1]:
+        await mergeSort(props);
+        break;
       case algorithms[2]:
         await insertionSort(props);
         break;

@@ -6,9 +6,11 @@ export const bubbleSort = async ({
   setColorsArray,
   sortingSpeed,
 }) => {
-  let len = array.length;
+  const len = array.length;
 
+  let swapped;
   for (let i = 0; i < len - 1; i++) {
+    swapped = false;
     for (let j = 0; j < len - 1 - i; j++) {
       let newColorsArray = new Array(len - i)
         .fill(0)
@@ -22,10 +24,13 @@ export const bubbleSort = async ({
       setColorsArray(newColorsArray);
 
       if (array[j + 1] < array[j]) {
-        let t = array[j + 1];
-        array[j + 1] = array[j];
-        array[j] = t;
+        [array[j], array[j + 1]] = [array[j + 1], array[j]];
+        swapped = true;
       }
+    }
+
+    if (!swapped) {
+      break;
     }
     setArray(array);
   }

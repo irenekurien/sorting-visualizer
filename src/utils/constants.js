@@ -8,6 +8,6 @@ export const GENERIC = "#f2edd7";
 export const PIVOT = "#99154e";
 export const SWAP = "#ffc93c";
 export const KEY = "#ffb26b";
-export const LAST = "0000ff";
+export const SUBARRAY = "0000ff";
 
 export const algorithms = [QUICK, MERGE, INSERTION, SELECTION, BUBBLE];

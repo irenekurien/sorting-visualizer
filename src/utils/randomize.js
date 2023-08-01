@@ -1,4 +1,4 @@
-const generateRandomArray = (size) => {
+export const generateRandomArray = (size) => {
   let randomizedArray = [];
 
   for (let i = 0; i < size; i++) {
@@ -6,5 +6,3 @@ const generateRandomArray = (size) => {
   }
   return randomizedArray;
 };
-
-export default generateRandomArray;
