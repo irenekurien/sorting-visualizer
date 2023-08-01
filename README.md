@@ -4,8 +4,8 @@ A website, built on React.js, that lets you visvalize some of the common sorting
 - [Bubble Sort](https://www.geeksforgeeks.org/bubble-sort/)
 - [Selection Sort](https://www.geeksforgeeks.org/selection-sort/)
 - [Insertion Sort](https://www.geeksforgeeks.org/insertion-sort/)
-- [Merge Sort](https://www.geeksforgeeks.org/merge-sort/) not yet implemented
-- [Quick Sort](https://www.geeksforgeeks.org/quick-sort/) not yet implemented
+- [Merge Sort](https://www.geeksforgeeks.org/merge-sort/) 
+- [Quick Sort](https://www.geeksforgeeks.org/quick-sort/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
